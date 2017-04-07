@@ -24,8 +24,8 @@ iptables -A LOGGING -d  $line -j ACCEPT
 ## Log and reject all the remaining IP connections.
 iptables -A LOGGING -j LOG --log-prefix "[ipreject] " --log-level 7 -m state --state NEW
 iptables -A LOGGING -d  54.216.145.181/32 -j ACCEPT #pnda mirror
-iptables -A LOGGING -d  173.38.0.0/16 -j ACCEPT    #csco range for clients
-iptables -A LOGGING -d  10.2.0.0/16 -j ACCEPT      #local range
+iptables -A LOGGING -d  54.171.212.36/32 -j ACCEPT    #csco range for clients
+iptables -A LOGGING -d  10.0.0.0/16 -j ACCEPT      #local range
 
 iptables -A LOGGING -j REJECT
 
