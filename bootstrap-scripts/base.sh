@@ -9,6 +9,26 @@
 
 set -e
 
+# Log the global scope IP connection.
+cat > /etc/rsyslog.d/10-iptables.conf <<EOF
+:msg,contains,"[ipreject] " /var/log/iptables.log
+STOP
+EOF
+sudo service rsyslog restart
+iptables -N LOGGING
+iptables -A OUTPUT -j LOGGING
+## Accept all local scope IP packets.
+  ip address show  | awk '/inet /{print $2}' | while IFS= read line; do \
+iptables -A LOGGING -d  $line -j ACCEPT
+  done
+## Log and reject all the remaining IP connections.
+iptables -A LOGGING -j LOG --log-prefix "[ipreject] " --log-level 7 -m state --state NEW
+iptables -A LOGGING -d  54.216.145.181/32 -j ACCEPT #pnda mirror
+iptables -A LOGGING -d  173.38.0.0/16 -j ACCEPT    #csco range for clients
+iptables -A LOGGING -d  10.2.0.0/16 -j ACCEPT      #local range
+
+iptables -A LOGGING -j REJECT
+
 DISTRO=$(cat /etc/*-release|grep ^ID\=|awk -F\= {'print $2'}|sed s/\"//g)
 
 if [ "x$DISTRO" == "xubuntu" ]; then
