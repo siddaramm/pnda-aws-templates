@@ -169,7 +169,7 @@
           },                   
           {
               "DeviceName"  : "/dev/sdd",
-              "Ebs" : { "VolumeSize" : "35" }
+              "Ebs" : { "VolumeSize" : "250" }
           }
         ],
         "SecurityGroupIds": [ {"Ref": "pndaSg"} ]
