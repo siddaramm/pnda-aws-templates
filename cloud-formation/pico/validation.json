@@ -1,8 +1,8 @@
 {
   "zk-nodes":"0",
-  "kafka-nodes":"1",
+  "kafka-nodes":"1-6",
   "opentsdb-nodes":"0",
-  "datanodes":"1-3",
+  "datanodes":"1-6",
   "elk-es-master":"0",
   "elk-es-data":"0",
   "elk-es-ingest":"0",
