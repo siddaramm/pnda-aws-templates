@@ -7,7 +7,7 @@
     },    
     "instancetypeKafka" : {
       "Type" : "String",
-      "Default" : "m4.large",
+      "Default" : "m4.xlarge",
       "Description" : "Instance type for databus combined instance"
     },
     "instancetypeCdhMgr" : {
@@ -17,7 +17,7 @@
     },
     "instancetypeCdhDn" : {
       "Type" : "String",
-      "Default" : "c4.xlarge",
+      "Default" : "c4.4xlarge",
       "Description" : "Instance type for CDH datanode"
     },
     "instancetypeEdge" : {
@@ -120,7 +120,7 @@
         "BlockDeviceMappings" : [
           {
               "DeviceName" : "/dev/sda1",
-              "Ebs" : { "VolumeSize" : "20" }
+              "Ebs" : { "VolumeSize" : "40" }
           },         
           {
               "DeviceName" : "/dev/sdc",
@@ -161,7 +161,7 @@
         "BlockDeviceMappings" : [
           {
               "DeviceName" : "/dev/sda1",
-              "Ebs" : { "VolumeSize" : "20" }
+              "Ebs" : { "VolumeSize" : "40" }
           },
           {
               "DeviceName" : "/dev/sdc",
@@ -247,7 +247,7 @@
         "BlockDeviceMappings" : [
           {
               "DeviceName" : "/dev/sda1",
-              "Ebs" : { "VolumeSize" : "20" }
+              "Ebs" : { "VolumeSize" : "40" }
           },
           {
               "DeviceName" : "/dev/sdc",
